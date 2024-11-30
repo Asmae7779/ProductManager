@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="538.0" prefWidth="634.0" style="-fx-background-color: #d3bac4;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ensa.controller.Tableproduct">
+    <children>
+
+        <TableView accessibleRole="BUTTON" fx:id="productTable" layoutX="74.0" layoutY="157.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="246.0" prefWidth="486.0">
+            <columns>
+                <TableColumn fx:id="id" prefWidth="85.0" text="id" />
+                <TableColumn fx:id="nom" prefWidth="48.0" text="nom" />
+                <TableColumn fx:id="desc" prefWidth="90.0" text="description" />
+                <TableColumn fx:id="prix" prefWidth="99.0" text="prix" />
+                <TableColumn fx:id="commercial_matricule" prefWidth="158.0" text="commercial_matricule" />
+            </columns>
+            <opaqueInsets>
+                <Insets />
+            </opaqueInsets>
+        </TableView>
+        <Button contentDisplay="LEFT" layoutX="101.0" layoutY="463.0" prefHeight="28.0" prefWidth="79.0" text="ADD">
+
+        </Button>
+
+        <Line endX="307.0" layoutX="265.0" layoutY="126.0" opacity="0.33" startX="-310.0" />
+        <Line endX="513.0" layoutX="109.0" layoutY="428.0" opacity="0.42" startX="-100.0" />
+        <Button contentDisplay="LEFT" layoutX="210.0" layoutY="463.0" text="update">
+
+        </Button>
+        <Button contentDisplay="LEFT" layoutX="338.0" layoutY="463.0" text="delete">
+            <graphic>
+                <ImageView fitHeight="20" fitWidth="21.0">
+                    <image>
+                        <Image url="https://www.freepik.com/icon/delete_12236906#fromView=search&amp;page=1&amp;position=5&amp;uuid=1fa9045d-f2df-4bf7-9989-13f1cdc62e04" />
+                    </image>
+                </ImageView>
+            </graphic>
+        </Button>
+
+        <Button contentDisplay="LEFT" layoutX="458.0" layoutY="463.0" text="close">
+
+        </Button>
+        <VBox layoutX="210.0" layoutY="73.0" prefHeight="53.0" prefWidth="156.0">
+            <children>
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Products" wrappingWidth="155.62890625">
+                    <font>
+                        <Font name="System Bold" size="29.0" />
+                    </font>
+                </Text>
+            </children>
+        </VBox>
+
+    </children>
+</AnchorPane>

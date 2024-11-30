@@ -10,6 +10,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -46,24 +47,31 @@ public class ProductController {
         if(commercials == null){
             System.out.println("pas de commercials dans votre tableau");
         }else{
-            System.out.println("recherche reussi");
+            System.out.println("recherche resussi");
         }
         commercial selectedCommercial = null;
         for (commercial com : commercials) {
             if (com.getNom().equals(commercialName)) { // Comparez avec le nom
                 selectedCommercial = com;
-                break; // Si trouvé, sortez de la boucle
+                break;
             }
         }
 
-        // Vérifiez si le commercial a été trouvé
+
+
         if (selectedCommercial != null) {
-            product pr = new product(nomvalue, descriptionvalue, prixDouble, selectedCommercial);
-            imp.Add(pr);
+            try {
+                product pr = new product(nomvalue, descriptionvalue, prixDouble, selectedCommercial);
+                imp.Add(pr);
+            } catch (SQLException e) {
+                e.printStackTrace();
+                System.out.println("Erreur lors de l'ajout du produit : " + e.getMessage());
+
+            }
         } else {
-            // Gérer le cas où le commercial n'est pas trouvé
             System.out.println("Commercial non trouvé : " + commercialName);
-            // Vous pouvez afficher un message d'erreur à l'utilisateur ici
+
         }
+
     }
 }

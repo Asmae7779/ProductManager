@@ -18,6 +18,13 @@ public class product {
         this.prix = prix;
         this.commercial = com ;
     }
+    public product(int id ,String nom, String description, double prix, commercial com) {
+        this.id = id;
+        this.nom = nom;
+        this.description = description;
+        this.prix = prix;
+        this.commercial = com ;
+    }
 
 
 
@@ -55,6 +62,10 @@ public class product {
     public void setPrix(double prix) {
         this.prix = prix;
     }
+    public String getCommercialMatricule() {
+        return commercial != null ? commercial.getMatricule() : null; // Assurez-vous que getMatricule() existe
+    }
 
     }
+
 
