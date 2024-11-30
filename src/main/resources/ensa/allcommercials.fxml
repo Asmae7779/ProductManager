@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TableColumn?>
@@ -12,16 +18,16 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="538.0" prefWidth="634.0" style="-fx-background-color: #d3bac4;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ensa.controller.Tableproduct">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="538.0" prefWidth="634.0" style="-fx-background-color: #d3bac4;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ensa.controller.TableCommercial">
     <children>
 
-        <TableView fx:id="productTable" accessibleRole="BUTTON" layoutX="74.0" layoutY="157.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="246.0" prefWidth="507.0">
+        <TableView fx:id="commercialTable" accessibleRole="BUTTON" layoutX="74.0" layoutY="157.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="246.0" prefWidth="507.0">
             <columns>
-                <TableColumn fx:id="id" prefWidth="48.0" text="id" />
+
                 <TableColumn fx:id="nom" prefWidth="79.0" text="nom" />
-                <TableColumn fx:id="desc" prefWidth="170.0" text="description" />
-                <TableColumn fx:id="prix" prefWidth="77.0" text="prix" />
-                <TableColumn fx:id="commercial_matricule" prefWidth="132.0" text="commercial_matricule" />
+                <TableColumn fx:id="prenom" prefWidth="170.0" text="prenom" />
+
+                <TableColumn fx:id="matricule" prefWidth="132.0" text="matricule" />
             </columns>
             <opaqueInsets>
                 <Insets />

@@ -7,6 +7,9 @@ import ensa.util.DbConnexion;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -16,6 +19,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 
 public class Tableproduct {
 
@@ -48,10 +53,13 @@ public class Tableproduct {
         desc.setCellValueFactory(new PropertyValueFactory<>("description"));
         prix.setCellValueFactory(new PropertyValueFactory<>("prix"));
         commercial_matricule.setCellValueFactory(new PropertyValueFactory<>("commercialMatricule"));
+        productTable.setOnMouseClicked(event -> handleMouseClick(event));
+
 
         // Charger les données depuis la base de données
         loadProducts();
     }
+
 
     private void loadProducts() {
         String query = "SELECT * FROM product";
@@ -90,5 +98,34 @@ public class Tableproduct {
             e.printStackTrace();
         }
     }
+
+
+
+    private void handleMouseClick(MouseEvent event) {
+        if (event.getClickCount() == 2) { // Vérifie si la ligne a été double-cliquée
+            product selectedProduct = productTable.getSelectionModel().getSelectedItem();
+            if (selectedProduct != null) {
+                try {
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/ensa/updateproduct.fxml"));
+                    Parent root = loader.load();
+
+                    // Obtenir le contrôleur de l'interface update
+                    UpdateProduct controller = loader.getController();
+                    controller.setProduct(selectedProduct); // Passer l'objet produit au contrôleur
+
+                    // Créer une nouvelle scène et une nouvelle fenêtre
+                    Stage stage = new Stage();
+                    stage.setScene(new Scene(root));
+                    stage.setTitle("Mettre à jour le produit");
+                    stage.show();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            } else {
+                System.out.println("Aucun produit sélectionné !");
+            }
+        }
+    }
 }
+
 

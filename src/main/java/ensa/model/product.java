@@ -25,6 +25,9 @@ public class product {
         this.prix = prix;
         this.commercial = com ;
     }
+    public product(){
+
+    }
 
 
 

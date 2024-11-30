@@ -14,11 +14,33 @@ public class UpdateProduct {
     @FXML
     private TextField nom ;
     @FXML
+    private TextField id ;
+    @FXML
     private TextField description ;
     @FXML
     private TextField prix ;
     @FXML
     private TextField commercial ;
+    @FXML
+    private product currentProduct;
+
+    public void setProduct(product product) {
+        this.currentProduct = product;  // Stocke le produit sélectionné dans la variable currentProduct
+
+        // Met à jour les champs de texte avec les informations du produit
+        id.setText(String.valueOf(product.getId()));           // Remplir le champ ID
+        nom.setText(product.getNom());                          // Remplir le champ Nom
+        description.setText(product.getDescription());                 // Remplir le champ Description
+        prix.setText(String.valueOf(product.getPrix()));        // Remplir le champ Prix
+        commercial.setText(product.getCommercial().getNom()); // Remplir le champ Commercial
+        loadProductDetails(product);
+    }
+    private void loadProductDetails(product product) {
+        System.out.println("Détails du produit : " + product.getNom());
+        handleUpdateProduct();
+        // Vous pouvez mettre à jour les éléments de l'interface utilisateur ici
+    }
+
     public void handleUpdateProduct(){
         String nomvalue = nom.getText();
         String descriptionvalue = description.getText();
