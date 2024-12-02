@@ -145,6 +145,8 @@ public class Tableproduct {
                     stage.setScene(new Scene(root));
                     stage.setTitle("Mettre à jour le produit");
                     stage.show();
+                    Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                    currentStage.close();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

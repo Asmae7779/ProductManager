@@ -24,15 +24,14 @@ public class HomeController {
         openInterface("/ensa/allcommercials.fxml", "All Commercials", event);
     }
 
+
+
     @FXML
     void gotoaddcommercial(ActionEvent event) {
         openInterface("/ensa/addcommercial.fxml", "Add Commercial", event);
     }
 
-    @FXML
-    void gotoupdateproduct(ActionEvent event) {
-        openInterface("/ensa/updateproduct.fxml", "Update Product", event);
-    }
+
 
     public void openInterface(String fxmlPath, String title, ActionEvent event) {
         try {

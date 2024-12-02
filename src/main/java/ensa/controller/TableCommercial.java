@@ -42,6 +42,7 @@ public class TableCommercial {
         nom.setCellValueFactory(new PropertyValueFactory<>("nom"));
         prenom.setCellValueFactory(new PropertyValueFactory<>("prenom"));
         matricule.setCellValueFactory(new PropertyValueFactory<>("matricule"));
+        commercialTable.setOnMouseClicked(event -> handleMouseClick(event));
 
         loadCommercials();
 
@@ -87,5 +88,33 @@ public class TableCommercial {
         Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         currentStage.close();
 
+    }
+
+    private void handleMouseClick(MouseEvent event) {
+        if (event.getClickCount() == 2) { // Vérifie si la ligne a été double-cliquée
+            commercial selectedCommercial = commercialTable.getSelectionModel().getSelectedItem();
+            if ( selectedCommercial != null) {
+                try {
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/ensa/updatecommercial.fxml"));
+                    Parent root = loader.load();
+
+                    // Obtenir le contrôleur de l'interface update
+                    UpdateCommercial controller = loader.getController();
+                    controller.SetCommercial(selectedCommercial); // Passer l'objet produit au contrôleur
+
+                    // Créer une nouvelle scène et une nouvelle fenêtre
+                    Stage stage = new Stage();
+                    stage.setScene(new Scene(root));
+                    stage.setTitle("Update Commercial");
+                    stage.show();
+                    Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                    currentStage.close();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            } else {
+                System.out.println("Aucun Commercial selectione !");
+            }
+        }
     }
 }

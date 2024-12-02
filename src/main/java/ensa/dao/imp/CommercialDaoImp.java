@@ -31,6 +31,30 @@ public class CommercialDaoImp {
             return false;
         }
     }
+    public void UpdateCommercial(commercial com, String nom , String prenom , String matricule){
+        String sql = "UPDATE commercial SET nom=?, prenom=?, matricule=? WHERE nom=? AND prenom=? AND matricule=?";
+        try(
+            DbConnexion db = new DbConnexion();
+            Connection con = db.getConnection();
+            PreparedStatement pst = con.prepareStatement(sql)){
+
+                pst.setString(1, nom);
+                pst.setString(2, prenom);
+                pst.setString(3, matricule);
+                pst.setString(4, com.getNom());
+                pst.setString(5, com.getPrenom());
+                pst.setString(6, com.getMatricule());
+
+                int result = pst.executeUpdate();
+                if (result > 0) {
+                    System.out.println("Update réussi!");
+                }
+
+        }catch(SQLException e){
+            e.printStackTrace();
+            System.out.println("Update échouée!");
+        }
+    }
     public List<commercial> getAllCommercials(){
         List<commercial> commercials = new ArrayList<>();
         String query="SELECT * FROM commercial";

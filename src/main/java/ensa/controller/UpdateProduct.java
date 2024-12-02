@@ -33,7 +33,7 @@ public class UpdateProduct {
     public void setProduct(product product) {
         this.currentProduct = product;  // Stocke le produit sélectionné dans la variable currentProduct
 
-        // Met à jour les champs de texte avec les informations du produit
+
         id.setText(String.valueOf(product.getId()));           // Remplir le champ ID
         nom.setText(product.getNom());                          // Remplir le champ Nom
         description.setText(product.getDescription());                 // Remplir le champ Description
