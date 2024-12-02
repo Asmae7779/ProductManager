@@ -6,8 +6,10 @@ import ensa.model.product;
 import ensa.util.DbConnexion;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
@@ -99,8 +101,33 @@ public class Tableproduct {
         }
     }
 
+    public void Retour(ActionEvent event) {
+        try {
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/ensa/homepage.fxml"));
+            Parent root = loader.load();
 
 
+            Stage newStage = new Stage();
+            newStage.setTitle("Home");
+            newStage.setScene(new Scene(root));
+            newStage.show();
+
+
+            Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            currentStage.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
+
+    public void Close(ActionEvent event){
+        Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        currentStage.close();
+
+    }
     private void handleMouseClick(MouseEvent event) {
         if (event.getClickCount() == 2) { // Vérifie si la ligne a été double-cliquée
             product selectedProduct = productTable.getSelectionModel().getSelectedItem();

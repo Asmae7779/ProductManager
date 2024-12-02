@@ -6,9 +6,15 @@ import ensa.model.commercial;
 import ensa.model.product;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -72,6 +78,33 @@ public class ProductController {
             System.out.println("Commercial non trouvé : " + commercialName);
 
         }
+
+    }
+    public void Retour(ActionEvent event) {
+        try {
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/ensa/homepage.fxml"));
+            Parent root = loader.load();
+
+
+            Stage newStage = new Stage();
+            newStage.setTitle("Home");
+            newStage.setScene(new Scene(root));
+            newStage.show();
+
+
+            Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            currentStage.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
+
+    public void Close(ActionEvent event){
+        Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        currentStage.close();
 
     }
 }

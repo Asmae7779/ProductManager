@@ -6,6 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
+<?import javafx.scene.control.ToggleButton?>
 <AnchorPane prefHeight="432.0" prefWidth="600.0" style="-fx-background-color: #DFD7C7;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ensa.controller.UpdateProduct">
     <children>
         <Label layoutX="197.0" layoutY="25.0" prefHeight="39.0" prefWidth="232.0" text="UPDATE PRODUCT" textAlignment="CENTER">
@@ -40,10 +41,13 @@
 
         <TextField fx:id="commercial" layoutX="213.0" layoutY="310.0" prefHeight="25.0" prefWidth="243.0" />
 
-        <Button fx:id="update" layoutX="197.0" layoutY="363.0" mnemonicParsing="false" onAction="#handleUpdateProduct" prefHeight="39.0" prefWidth="176.0" style="-fx-background-color: #D7C9AE;" text="ADD" textAlignment="CENTER">
+        <Button fx:id="update" layoutX="197.0" layoutY="363.0" mnemonicParsing="false" onAction="#handleUpdateProduct" prefHeight="39.0" prefWidth="176.0" style="-fx-background-color: #D7C9AE;" text="Update" textAlignment="CENTER">
             <font>
                 <Font size="20.0" />
             </font>
         </Button>
     </children>
+    <ToggleButton layoutX="399.0" layoutY="448.0" mnemonicParsing="false" onAction="#Close" prefHeight="39.0" prefWidth="126.0" text="Close" />
+    <ToggleButton layoutX="138.0" layoutY="448.0" mnemonicParsing="false" onAction="#Retour" prefHeight="39.0" prefWidth="126.0" text="Retour" />
+
 </AnchorPane>

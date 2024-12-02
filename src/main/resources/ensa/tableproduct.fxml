@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Line?>
@@ -27,28 +25,9 @@
                 <Insets />
             </opaqueInsets>
         </TableView>
-        <Button contentDisplay="LEFT" layoutX="101.0" layoutY="463.0" prefHeight="28.0" prefWidth="79.0" text="ADD">
-
-        </Button>
 
         <Line endX="307.0" layoutX="265.0" layoutY="126.0" opacity="0.33" startX="-310.0" />
         <Line endX="513.0" layoutX="109.0" layoutY="428.0" opacity="0.42" startX="-100.0" />
-        <Button contentDisplay="LEFT" layoutX="210.0" layoutY="463.0" text="update">
-
-        </Button>
-        <Button contentDisplay="LEFT" layoutX="338.0" layoutY="463.0" text="delete">
-            <graphic>
-                <ImageView fitHeight="20" fitWidth="21.0">
-                    <image>
-                        <Image url="https://www.freepik.com/icon/delete_12236906#fromView=search&amp;page=1&amp;position=5&amp;uuid=1fa9045d-f2df-4bf7-9989-13f1cdc62e04" />
-                    </image>
-                </ImageView>
-            </graphic>
-        </Button>
-
-        <Button contentDisplay="LEFT" layoutX="458.0" layoutY="463.0" text="close">
-
-        </Button>
         <VBox layoutX="210.0" layoutY="73.0" prefHeight="53.0" prefWidth="156.0">
             <children>
                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Products" wrappingWidth="155.62890625">
@@ -58,6 +37,8 @@
                 </Text>
             </children>
         </VBox>
+      <ToggleButton layoutX="386.0" layoutY="452.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="126.0" text="Close" onAction="#Close" />
+      <ToggleButton layoutX="147.0" layoutY="452.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="126.0" text="Retour" onAction="#Retour"/>
 
     </children>
 </AnchorPane>

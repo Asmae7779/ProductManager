@@ -3,6 +3,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
@@ -34,10 +35,13 @@
 
 
 
-        <Button fx:id="add" layoutX="209.0" layoutY="333.0" mnemonicParsing="false" onAction="#handleAddCommercial" prefHeight="39.0" prefWidth="176.0" style="-fx-background-color: #D7C9AE;" text="ADD" textAlignment="CENTER">
+        <Button fx:id="add" layoutX="216.0" layoutY="333.0" mnemonicParsing="false" onAction="#handleAddCommercial" prefHeight="44.0" prefWidth="160.0" style="-fx-background-color: #D7C9AE;" text="ADD" textAlignment="CENTER">
             <font>
                 <Font size="20.0" />
             </font>
         </Button>
+        <ToggleButton layoutX="410.0" layoutY="336.0" mnemonicParsing="false" onAction="#Close" prefHeight="39.0" prefWidth="126.0" style="-fx-background-color: #D7C9AE;" text="Close" />
+        <ToggleButton layoutX="54.0" layoutY="336.0" mnemonicParsing="false" onAction="#Retour" prefHeight="39.0" prefWidth="126.0" style="-fx-background-color: #D7C9AE;" text="Retour" />
+
     </children>
 </AnchorPane>
