@@ -31,6 +31,27 @@ public class CommercialDaoImp {
             return false;
         }
     }
+
+    public void deleteCommercial(commercial com){
+        String sql = "DELETE FROM commercial WHERE matricule=?";
+        try (
+                DbConnexion db = new DbConnexion();
+                Connection con = db.getConnection()){
+            PreparedStatement pr = con.prepareStatement(sql);
+            pr.setString(1,com.getMatricule());
+            int row = pr.executeUpdate();
+            if(row>0){
+                System.out.println("Commercial deleted");
+            }else {
+                System.out.println("Commercial not deleted");
+            }
+
+        }catch(SQLException e){
+            e.printStackTrace();
+            System.out.println("Commercial not deleted");
+        }
+
+    }
     public void UpdateCommercial(commercial com, String nom , String prenom , String matricule){
         String sql = "UPDATE commercial SET nom=?, prenom=?, matricule=? WHERE nom=? AND prenom=? AND matricule=?";
         try(

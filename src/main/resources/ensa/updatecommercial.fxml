@@ -6,6 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
+<?import javafx.scene.layout.HBox?>
 <AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #DFD7C7;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ensa.controller.UpdateCommercial">
    <children>
       <Label alignment="CENTER" layoutX="51.0" layoutY="97.0" prefHeight="25.0" prefWidth="88.0" text="nom">
@@ -26,21 +27,37 @@
       <TextField fx:id="nom" layoutX="211.0" layoutY="97.0" />
       <TextField fx:id="prenom" layoutX="211.0" layoutY="166.0" />
       <TextField fx:id="matricule" layoutX="211.0" layoutY="221.0" />
-      <Button layoutX="226.0" layoutY="281.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="124.0" style="-fx-background-color: #D7C9AE;" text="Update" onAction="#handleUpdateCommercial">
-         <font>
-            <Font name="System Bold" size="16.0" />
-         </font>
-      </Button>
-      <Button layoutX="371.0" layoutY="281.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="124.0" style="-fx-background-color: #D7C9AE;" text="Close" onAction="#Close">
-         <font>
-            <Font name="System Bold" size="16.0" />
-         </font>
-      </Button>
-      <Button layoutX="80.0" layoutY="281.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="124.0" style="-fx-background-color: #D7C9AE;" text="Retour" onAction="#Retour">
-         <font>
-            <Font name="System Bold" size="16.0" />
-         </font>
-      </Button>
+      <HBox layoutX="50.0" layoutY="370.0" spacing="20.0" alignment="CENTER">
+      <children>
+         <!-- Retour Button -->
+         <Button fx:id="retour" mnemonicParsing="false" onAction="#Retour" prefHeight="39.0" prefWidth="126.0" style="-fx-background-color: #D7C9AE; -fx-font-weight: bold;" text="Retour" textAlignment="CENTER">
+            <font>
+               <Font size="16.0" />
+            </font>
+         </Button>
+
+         <!-- Close Button -->
+         <Button fx:id="close" mnemonicParsing="false" onAction="#Close" prefHeight="39.0" prefWidth="126.0" style="-fx-background-color: #D7C9AE; -fx-font-weight: bold;" text="Close" textAlignment="CENTER">
+            <font>
+               <Font size="16.0" />
+            </font>
+         </Button>
+
+         <!-- Update Button -->
+         <Button fx:id="update" mnemonicParsing="false" onAction="#handleUpdateCommercial" prefHeight="39.0" prefWidth="126.0" style="-fx-background-color: #D7C9AE; -fx-font-weight: bold;" text="Update" textAlignment="CENTER">
+            <font>
+               <Font size="16.0" />
+            </font>
+         </Button>
+
+         <!-- Delete Button -->
+         <Button fx:id="delete" mnemonicParsing="false" onAction="#handleDeleteCommercial" prefHeight="39.0" prefWidth="126.0" style="-fx-background-color: #D7C9AE; -fx-font-weight: bold;" text="Delete" textAlignment="CENTER">
+            <font>
+               <Font size="16.0" />
+            </font>
+         </Button>
+      </children>
+   </HBox>
 
    </children>
 </AnchorPane>

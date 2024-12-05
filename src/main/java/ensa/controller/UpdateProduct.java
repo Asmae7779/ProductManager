@@ -47,6 +47,33 @@ public class UpdateProduct {
         // Vous pouvez mettre à jour les éléments de l'interface utilisateur ici
     }
 
+
+
+    public void handleDeleteProduct(){
+        String nomvalue = nom.getText();
+        String descriptionvalue = description.getText();
+        String prixvalue = prix.getText();
+        double prixd = Double.parseDouble(prixvalue);
+        String matriculevalue = commercial.getText();
+        if (nomvalue.isEmpty() || descriptionvalue.isEmpty() || prixvalue.isEmpty() || matriculevalue.isEmpty()) {
+            System.out.println("Erreur : tous les champs doivent être remplis.");
+            return;
+        }
+        product selectedProduct = null ;
+        ProductImp pimp = new ProductImp();
+        List<product> allproducts = new ArrayList<>();
+        allproducts = pimp.getAllProducts();
+
+        for(product pd:allproducts) {
+            if(pd.getNom().equals(nomvalue)){
+                selectedProduct=pd;
+                break;
+            }
+
+
+        }
+        pimp.DeleteProduct(selectedProduct);
+    }
     public void handleUpdateProduct(){
         String nomvalue = nom.getText();
         String descriptionvalue = description.getText();
@@ -75,7 +102,8 @@ public class UpdateProduct {
             System.out.println("Erreur : produit introuvable ");
         }
         CommercialDaoImp commercialDao = new CommercialDaoImp();
-        List<commercial> commercials = commercialDao.getAllCommercials();
+        List<commercial> commercials = new ArrayList<>();
+        commercials = commercialDao.getAllCommercials();
         commercial selectedCommercial = null;
         for (commercial com : commercials) {
             if (com.getNom().equals(matriculevalue)) { // Comparez avec le nom

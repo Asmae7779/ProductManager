@@ -113,6 +113,25 @@ public class ProductImp {
             System.out.println("Update échouée!");
         }
     }
+    public void DeleteProduct(product pd){
+        String sql = "DELETE FROM product WHERE id=?";
+        try (
+            DbConnexion db = new DbConnexion();
+            Connection con = db.getConnection()){
+            PreparedStatement pr = con.prepareStatement(sql);
+            pr.setInt(1,pd.getId());
+            int row = pr.executeUpdate();
+            if(row>0){
+                System.out.println("Product deleted");
+            }else {
+                System.out.println("Product not deleted");
+            }
+
+        }catch(SQLException e){
+            e.printStackTrace();
+            System.out.println("Product not deleted");
+        }
+    }
 
 
 }

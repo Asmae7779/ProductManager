@@ -12,6 +12,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class UpdateCommercial {
@@ -45,6 +46,24 @@ public class UpdateCommercial {
             System.out.println("Failed to update the commercial.");
         }
 
+
+    }
+    public void handleDeleteCommercial(){
+        String matvalue = matricule.getText();
+        List<commercial> commercials = new ArrayList<>();
+        CommercialDaoImp imp = new CommercialDaoImp();
+        commercials = imp.getAllCommercials();
+        commercial selectedcom = null;
+        for(commercial com:commercials){
+            if(com.getMatricule().equals(matvalue)){
+                selectedcom = com;
+                break;
+            }else {
+                System.out.println("Produit introuvable!");
+            }
+
+        }
+        imp.deleteCommercial(selectedcom);
 
     }
 
